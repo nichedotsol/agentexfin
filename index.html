@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agentex</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="shell" aria-label="Agentex workspace">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Agentex</p>
+          <h1>Hi, Albert</h1>
+          <p class="brief" id="briefText">Mira is working. Ops needs you.</p>
+        </div>
+        <button class="menu-button" type="button" aria-label="Open settings">
+          <span></span>
+          <span></span>
+        </button>
+      </section>
+
+      <section class="balance-panel" aria-label="Account summary">
+        <div>
+          <span class="label">Available</span>
+          <strong>$248.20</strong>
+        </div>
+        <div>
+          <span class="label">Agents</span>
+          <strong>3 active</strong>
+        </div>
+        <div>
+          <span class="label">Needs you</span>
+          <strong>1 approval</strong>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Agent workspace">
+        <button class="agent-object mira is-working" data-agent="mira" type="button">
+          <span class="agent-face">
+            <i></i>
+            <i></i>
+          </span>
+          <span class="agent-name">Mira</span>
+          <span class="agent-state">working - $42</span>
+        </button>
+
+        <button class="agent-object atlas is-resting" data-agent="atlas" type="button">
+          <span class="agent-face">
+            <i></i>
+            <i></i>
+          </span>
+          <span class="agent-name">Atlas</span>
+          <span class="agent-state">resting - $15</span>
+        </button>
+
+        <button class="agent-object ops is-needed" data-agent="ops" type="button">
+          <span class="agent-face">
+            <i></i>
+            <i></i>
+          </span>
+          <span class="agent-name">Ops</span>
+          <span class="agent-state">needs you - $50 move</span>
+        </button>
+      </section>
+
+      <section class="command-panel" aria-label="Command Agentex">
+        <div class="suggestions" aria-label="Suggested actions">
+          <button type="button" data-command="Move 50 USDC to Solana">Move funds</button>
+          <button type="button" data-command="Give Mira 20 USDC for research this week">Fund an agent</button>
+          <button type="button" data-command="Show me what my agents spent today">Review activity</button>
+        </div>
+        <form class="command-form" id="commandForm">
+          <input
+            id="commandInput"
+            type="text"
+            autocomplete="off"
+            placeholder="Ask Agentex..."
+            aria-label="Ask Agentex"
+          />
+          <button type="submit">Prepare</button>
+        </form>
+      </section>
+
+      <button class="score-tray" id="scoreTray" type="button" aria-expanded="false">
+        <span>Score</span>
+        <strong>Mira buying data - Ops waiting - Atlas done</strong>
+      </button>
+    </main>
+
+    <aside class="agent-sheet" id="agentSheet" aria-hidden="true">
+      <button class="close-button" id="closeAgent" type="button" aria-label="Close agent">x</button>
+      <div class="mini-agent" id="miniAgent"></div>
+      <p class="eyebrow" id="agentRuntime">Hermes connected</p>
+      <h2 id="agentTitle">Mira</h2>
+      <p class="sheet-subtitle" id="agentSubtitle">working with $42</p>
+
+      <form class="agent-command" id="agentCommandForm">
+        <input id="agentCommandInput" type="text" placeholder="Ask or command this agent..." />
+        <button type="submit">Prepare</button>
+      </form>
+
+      <div class="recent-list">
+        <p class="section-label">Recent</p>
+        <button type="button">Bought market data for $0.08</button>
+        <button type="button">Funded worker-4 with $5</button>
+        <button type="button">Returned $3.12 unused</button>
+      </div>
+
+      <div class="quiet-controls">
+        <button type="button">Pause</button>
+        <button type="button">Limits</button>
+        <button type="button">Proof</button>
+      </div>
+    </aside>
+
+    <section class="action-sheet" id="actionSheet" aria-hidden="true" aria-live="polite">
+      <button class="close-button" id="closeAction" type="button" aria-label="Close action">x</button>
+      <p class="eyebrow" id="actionMode">Prepared action</p>
+      <h2 id="actionTitle">Move 50 USDC</h2>
+      <p class="sheet-subtitle" id="actionSubtitle">From Base to Solana</p>
+
+      <div class="action-metrics">
+        <div>
+          <span>Arrives</span>
+          <strong>about 4 min</strong>
+        </div>
+        <div>
+          <span>Fee</span>
+          <strong>about $0.12</strong>
+        </div>
+        <div>
+          <span>Rule</span>
+          <strong>approval needed</strong>
+        </div>
+      </div>
+
+      <div class="simulation" id="simulationBlock">
+        <span>Simulation</span>
+        <p>After this move: Base $120 - Solana $80. Route stays USDC-native.</p>
+      </div>
+
+      <div class="approval-slider" id="approvalSlider">
+        <span class="slider-track">Slide to approve</span>
+        <button class="slider-thumb" id="sliderThumb" type="button" aria-label="Slide to approve">-&gt;</button>
+      </div>
+
+      <div class="action-links">
+        <button id="whyButton" type="button">Why?</button>
+        <button id="simulateButton" type="button">Simulate</button>
+        <button id="detailsButton" type="button">Details</button>
+      </div>
+      <p class="why-copy" id="whyCopy">Your settings ask before funds move between networks.</p>
+    </section>
+
+    <section class="score-sheet" id="scoreSheet" aria-hidden="true">
+      <button class="close-button" id="closeScore" type="button" aria-label="Close score">x</button>
+      <p class="eyebrow">Score</p>
+      <h2>Today's movement</h2>
+      <div class="score-list">
+        <article>
+          <span class="dot now"></span>
+          <div>
+            <strong>Mira is buying market data</strong>
+            <p>$0.08 - approved</p>
+          </div>
+        </article>
+        <article class="needs">
+          <span class="dot wait"></span>
+          <div>
+            <strong>Ops wants to move 50 USDC</strong>
+            <p>Base to Solana - waiting for Albert</p>
+          </div>
+        </article>
+        <article>
+          <span class="dot done"></span>
+          <div>
+            <strong>Atlas returned unused funds</strong>
+            <p>$3.12 - proof saved</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="scrim" id="scrim"></div>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
