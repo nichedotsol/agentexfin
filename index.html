@@ -20,6 +20,15 @@
       </section>
 
       <section class="workspace" aria-label="Agent workspace">
+        <button class="notice-capsule" id="noticeCapsule" type="button">
+          <span class="notice-dot"></span>
+          <span>
+            <strong>Ops is asking</strong>
+            <small>50 USDC from Base to Solana</small>
+          </span>
+          <i>Review</i>
+        </button>
+
         <div class="funds-core" aria-label="Available funds">
           <span>Available</span>
           <strong>$248.20</strong>
@@ -76,9 +85,9 @@
       <button class="score-tray" id="scoreTray" type="button" aria-expanded="false">
         <span>Score</span>
         <strong class="score-beads">
-          <i class="bead now"></i>Mira buying data
-          <i class="bead wait"></i>Ops waiting
-          <i class="bead done"></i>Atlas done
+          <em><i class="bead now"></i>Mira buying data</em>
+          <em><i class="bead wait"></i>Ops waiting</em>
+          <em><i class="bead done"></i>Atlas done</em>
         </strong>
       </button>
     </main>
@@ -114,6 +123,12 @@
       <p class="eyebrow" id="actionMode">Prepared action</p>
       <h2 id="actionTitle">50 USDC</h2>
       <p class="sheet-subtitle" id="actionSubtitle">Move from Base to Solana</p>
+
+      <div class="route-strip" aria-label="Transaction route">
+        <span>Base</span>
+        <i></i>
+        <span>Solana</span>
+      </div>
 
       <div class="action-metrics">
         <div>
