@@ -5,92 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agentex</title>
     <link rel="stylesheet" href="./src/styles.css" />
-    <link rel="stylesheet" href="./src/rail-polish.css?v=playdough-3" />
+    <link rel="stylesheet" href="./src/rail-polish.css?v=reference-2" />
   </head>
   <body>
     <main class="shell" aria-label="Agentex workspace">
-      <section class="hero">
-        <div>
-          <p class="eyebrow">Agentex</p>
-          <h1>Hi, User</h1>
-        </div>
-        <button class="menu-button" type="button" aria-label="Open settings">
-          <span></span>
-          <span></span>
-        </button>
-      </section>
+      <aside class="side-nav" aria-label="Agentex navigation">
+        <a class="brand" href="/" aria-label="Agentex home">
+          <span class="brand-mark"></span>
+          <strong>agentex</strong>
+        </a>
 
-      <section class="workspace" aria-label="Agent workspace">
-        <button class="notice-capsule" id="noticeCapsule" type="button">
-          <span class="notice-dot"></span>
-          <span>
-            <strong>Ops is asking</strong>
-            <small>50 USDC from Base to Solana</small>
-          </span>
-          <i>Review</i>
-        </button>
+        <nav class="nav-list" aria-label="Primary">
+          <button class="nav-item is-active" type="button"><span></span>Home</button>
+          <button class="nav-item" type="button"><span></span>Activity</button>
+          <button class="nav-item" type="button"><span></span>Agents</button>
+          <button class="nav-item" type="button"><span></span>Settings</button>
+        </nav>
 
-        <div class="funds-core" aria-label="Available funds">
-          <span>Available</span>
-          <strong>$248.20</strong>
-          <p id="briefText">Mira is working. Ops needs you.</p>
+        <div class="simulate-card">
+          <div>
+            <strong>Simulate by default</strong>
+            <p>You'll always simulate before actions run.</p>
+          </div>
+          <button class="toggle is-on" type="button" aria-label="Simulation on"></button>
+          <button class="chevron-button" type="button" aria-label="Open simulation settings"></button>
         </div>
 
-        <button class="agent-object mira is-working" data-agent="mira" type="button">
-          <span class="agent-face">
-            <i></i>
-            <i></i>
-          </span>
-          <span class="agent-name">Mira</span>
-          <span class="agent-state">working - $42</span>
+        <button class="account-card" type="button">
+          <span>U</span>
+          <strong>User <small>Account</small></strong>
+          <i></i>
+        </button>
+      </aside>
+
+      <section class="app-main">
+        <header class="hero">
+          <div>
+            <h1>Hi, User</h1>
+            <p>Good morning. Your agents are on it.</p>
+          </div>
+          <button class="menu-button" type="button" aria-label="Open settings">
+            <span></span>
+            <span></span>
+          </button>
+        </header>
+
+        <section class="workspace" aria-label="Agent workspace">
+          <button class="notice-capsule" id="noticeCapsule" type="button">
+            <span class="notice-agent">
+              <i></i>
+              <i></i>
+            </span>
+            <span>
+              <strong>Ops is asking</strong>
+              <small>Move 50 USDC from Base to Solana</small>
+            </span>
+            <em></em>
+            <i>Review</i>
+          </button>
+
+          <div class="funds-core" aria-label="Available funds">
+            <span>Available funds</span>
+            <strong>$248.20</strong>
+            <p id="briefText"><i></i>Everything looks good</p>
+          </div>
+
+          <button class="rail-arrow rail-prev" type="button" aria-label="Previous agents"></button>
+
+          <div class="agent-rail">
+            <button class="agent-object mira is-working" data-agent="mira" type="button">
+              <span class="agent-face">
+                <i></i>
+                <i></i>
+              </span>
+              <span class="agent-name">Mira</span>
+              <span class="agent-state">Working - $42</span>
+            </button>
+
+            <button class="agent-object atlas is-resting" data-agent="atlas" type="button">
+              <span class="agent-face">
+                <i></i>
+                <i></i>
+              </span>
+              <span class="agent-name">Atlas</span>
+              <span class="agent-state">Resting - $15</span>
+            </button>
+
+            <button class="agent-object ops is-needed" data-agent="ops" type="button">
+              <span class="agent-face">
+                <i></i>
+                <i></i>
+              </span>
+              <span class="agent-name">Ops</span>
+              <span class="agent-state">Needs you - $50</span>
+            </button>
+          </div>
+
+          <button class="rail-arrow rail-next" type="button" aria-label="Next agents"></button>
+          <div class="rail-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        </section>
+
+        <section class="command-panel" aria-label="Command Agentex">
+          <form class="command-form" id="commandForm">
+            <span class="spark-icon"></span>
+            <input
+              id="commandInput"
+              type="text"
+              autocomplete="off"
+              placeholder="Ask Agentex..."
+              aria-label="Ask Agentex"
+            />
+            <button type="submit" aria-label="Prepare action"></button>
+          </form>
+          <div class="suggestions" aria-label="Suggested actions">
+            <button type="button" data-command="Move 50 USDC to Solana">Move funds</button>
+            <button type="button" data-command="Give Mira 20 USDC for research this week">Fund an agent</button>
+            <button type="button" data-command="Show me what my agents spent today">Review activity</button>
+            <button type="button" data-command="What can you do?">What can you do?</button>
+          </div>
+        </section>
+
+        <button class="score-tray" id="scoreTray" type="button" aria-expanded="false">
+          <span class="score-pulse"></span>
+          <strong>
+            <em>Score <small>Live agent activity</small></em>
+            <em><i class="bead now"></i>Mira <small>Buying data</small></em>
+            <em><i class="bead wait"></i>Ops <small>Waiting for approval</small></em>
+            <em><i class="bead done"></i>Atlas <small>Returned $3.12</small></em>
+          </strong>
+          <b></b>
         </button>
 
-        <button class="agent-object atlas is-resting" data-agent="atlas" type="button">
-          <span class="agent-face">
-            <i></i>
-            <i></i>
-          </span>
-          <span class="agent-name">Atlas</span>
-          <span class="agent-state">resting - $15</span>
-        </button>
-
-        <button class="agent-object ops is-needed" data-agent="ops" type="button">
-          <span class="agent-face">
-            <i></i>
-            <i></i>
-          </span>
-          <span class="agent-name">Ops</span>
-          <span class="agent-state">needs you - $50 move</span>
-        </button>
+        <nav class="mobile-nav" aria-label="Mobile navigation">
+          <button class="is-active" type="button"><span></span>Home</button>
+          <button type="button"><span></span>Activity</button>
+          <button type="button"><span></span>Agents</button>
+          <button type="button"><span></span>Settings</button>
+        </nav>
       </section>
-
-      <section class="command-panel" aria-label="Command Agentex">
-        <p class="command-label">What should happen next?</p>
-        <div class="suggestions" aria-label="Suggested actions">
-          <button type="button" data-command="Move 50 USDC to Solana">Move funds</button>
-          <button type="button" data-command="Give Mira 20 USDC for research this week">Fund an agent</button>
-          <button type="button" data-command="Show me what my agents spent today">Review activity</button>
-        </div>
-        <form class="command-form" id="commandForm">
-          <input
-            id="commandInput"
-            type="text"
-            autocomplete="off"
-            placeholder="Ask Agentex..."
-            aria-label="Ask Agentex"
-          />
-          <button type="submit">Prepare</button>
-        </form>
-      </section>
-
-      <button class="score-tray" id="scoreTray" type="button" aria-expanded="false">
-        <span>Score</span>
-        <strong class="score-beads">
-          <em><i class="bead now"></i>Mira buying data</em>
-          <em><i class="bead wait"></i>Ops waiting</em>
-          <em><i class="bead done"></i>Atlas done</em>
-        </strong>
-      </button>
     </main>
 
     <aside class="agent-sheet" id="agentSheet" aria-hidden="true">
@@ -132,22 +184,10 @@
       </div>
 
       <div class="action-metrics">
-        <div>
-          <span>To</span>
-          <strong>Solana</strong>
-        </div>
-        <div>
-          <span>From</span>
-          <strong>Base</strong>
-        </div>
-        <div>
-          <span>Fee</span>
-          <strong>about $0.12</strong>
-        </div>
-        <div>
-          <span>Arrives</span>
-          <strong>about 4 min</strong>
-        </div>
+        <div><span>To</span><strong>Solana</strong></div>
+        <div><span>From</span><strong>Base</strong></div>
+        <div><span>Fee</span><strong>about $0.12</strong></div>
+        <div><span>Arrives</span><strong>about 4 min</strong></div>
       </div>
 
       <div class="simulation" id="simulationBlock">
@@ -173,27 +213,9 @@
       <p class="eyebrow">Score</p>
       <h2>Today's movement</h2>
       <div class="score-list">
-        <article>
-          <span class="dot now"></span>
-          <div>
-            <strong>Mira is buying market data</strong>
-            <p>$0.08 - approved</p>
-          </div>
-        </article>
-        <article class="needs">
-          <span class="dot wait"></span>
-          <div>
-            <strong>Ops wants to move 50 USDC</strong>
-            <p>Base to Solana - waiting for User</p>
-          </div>
-        </article>
-        <article>
-          <span class="dot done"></span>
-          <div>
-            <strong>Atlas returned unused funds</strong>
-            <p>$3.12 - proof saved</p>
-          </div>
-        </article>
+        <article><span class="dot now"></span><div><strong>Mira is buying market data</strong><p>$0.08 - approved</p></div></article>
+        <article class="needs"><span class="dot wait"></span><div><strong>Ops wants to move 50 USDC</strong><p>Base to Solana - waiting for User</p></div></article>
+        <article><span class="dot done"></span><div><strong>Atlas returned unused funds</strong><p>$3.12 - proof saved</p></div></article>
       </div>
     </section>
 
