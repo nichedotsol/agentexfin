@@ -53,6 +53,7 @@ function closeLayers() {
     layer.setAttribute("aria-hidden", "true");
   });
   scrim.classList.remove("is-open");
+  document.querySelector("#scoreTray").setAttribute("aria-expanded", "false");
   agentButtons.forEach((button) => button.classList.remove("is-selected"));
   resetSlider();
 }
@@ -172,7 +173,14 @@ document.querySelectorAll("[data-command]").forEach((button) => {
   });
 });
 
-document.querySelector("#scoreTray").addEventListener("click", () => openLayer(scoreSheet));
+document.querySelector("#noticeCapsule").addEventListener("click", () => {
+  prepareAction("Move 50 USDC to Solana");
+});
+
+document.querySelector("#scoreTray").addEventListener("click", (event) => {
+  event.currentTarget.setAttribute("aria-expanded", "true");
+  openLayer(scoreSheet);
+});
 document.querySelector("#whyButton").addEventListener("click", () => {
   whyCopy.classList.toggle("is-visible");
 });
