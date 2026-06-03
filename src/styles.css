@@ -44,7 +44,7 @@ button {
 
 .shell {
   display: grid;
-  grid-template-rows: auto auto minmax(20rem, 1fr) auto auto;
+  grid-template-rows: auto minmax(27rem, 1fr) auto auto;
   min-height: 100vh;
   padding: clamp(1.1rem, 2.4vw, 2.4rem);
   gap: 1.1rem;
@@ -115,18 +115,6 @@ h2 {
   margin-top: -0.7rem;
 }
 
-.balance-panel {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
-  max-width: 52rem;
-}
-
-.balance-panel div {
-  border-top: 1px solid var(--line);
-  padding-top: 0.8rem;
-}
-
 .label,
 .action-metrics span {
   display: block;
@@ -134,15 +122,9 @@ h2 {
   font-size: 0.86rem;
 }
 
-.balance-panel strong {
-  display: block;
-  margin-top: 0.2rem;
-  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
-}
-
 .workspace {
   position: relative;
-  min-height: 25rem;
+  min-height: 31rem;
   border-radius: 2rem;
   background:
     linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0)),
@@ -159,6 +141,41 @@ h2 {
       rgba(38, 39, 34, 0.035) 2.5rem
     );
   overflow: hidden;
+}
+
+.funds-core {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  width: min(32rem, 78vw);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.funds-core span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.funds-core strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: clamp(4.2rem, 13vw, 9.4rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.funds-core p {
+  margin: 0.8rem 0 0;
+  color: #5a5a52;
+  font-size: clamp(1rem, 2vw, 1.35rem);
 }
 
 .agent-object {
@@ -189,8 +206,8 @@ h2 {
 
 .mira {
   --tilt: -2deg;
-  left: 14%;
-  top: 17%;
+  left: 12%;
+  top: 18%;
   border-radius: 44% 56% 52% 48% / 60% 42% 58% 40%;
   background: var(--blue);
   transform: rotate(var(--tilt));
@@ -198,8 +215,8 @@ h2 {
 
 .atlas {
   --tilt: 3deg;
-  right: 16%;
-  top: 15%;
+  right: 11%;
+  top: 22%;
   border-radius: 47% 53% 68% 32% / 40% 56% 44% 60%;
   background: var(--amber);
   transform: rotate(var(--tilt));
@@ -207,8 +224,8 @@ h2 {
 
 .ops {
   --tilt: 1deg;
-  left: 44%;
-  bottom: 13%;
+  left: 47%;
+  bottom: 8%;
   border-radius: 52% 48% 36% 64% / 52% 42% 58% 48%;
   background: var(--coral);
   transform: rotate(var(--tilt));
@@ -568,24 +585,23 @@ h2 {
 
   .shell {
     min-height: 100svh;
+    grid-template-rows: auto minmax(28rem, 1fr) auto auto;
     padding: 1rem;
     gap: 0.9rem;
   }
 
-  .balance-panel {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-  }
-
-  .balance-panel div {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
   .workspace {
-    min-height: 23rem;
+    min-height: 29rem;
     border-radius: 1.5rem;
+  }
+
+  .funds-core {
+    top: 38%;
+    width: min(22rem, 86vw);
+  }
+
+  .funds-core strong {
+    font-size: clamp(3.8rem, 20vw, 5.8rem);
   }
 
   .agent-object {
@@ -595,17 +611,17 @@ h2 {
 
   .mira {
     left: 5%;
-    top: 16%;
+    top: 56%;
   }
 
   .atlas {
     right: 4%;
-    top: 27%;
+    top: 58%;
   }
 
   .ops {
-    left: 30%;
-    bottom: 8%;
+    left: 31%;
+    bottom: 5%;
   }
 
   .suggestions {
