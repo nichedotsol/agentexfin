@@ -811,6 +811,15 @@ h2 {
   }
 }
 
+@media (hover: none) {
+  .suggestions button:hover,
+  .quiet-controls button:hover,
+  .action-links button:hover,
+  .recent-list button:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 760px) {
   body {
     overflow-x: hidden;
@@ -824,8 +833,21 @@ h2 {
   }
 
   .workspace {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.72rem;
     min-height: 30rem;
+    padding: 0 0.72rem 0.85rem;
     border-radius: 1.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-padding: 0.72rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .workspace::-webkit-scrollbar {
+    display: none;
   }
 
   .notice-capsule {
@@ -843,23 +865,55 @@ h2 {
   }
 
   .agent-object {
-    min-width: 8.3rem;
-    min-height: 7.4rem;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    z-index: 4;
+    flex: 0 0 10.4rem;
+    min-width: 10.4rem;
+    min-height: 8.05rem;
+    margin-top: auto;
+    scroll-snap-align: center;
+    cursor: pointer;
+    filter: drop-shadow(0 16px 22px rgba(33, 29, 21, 0.12));
   }
 
   .mira {
-    left: 5%;
-    top: 58%;
+    transform: rotate(-1.8deg);
   }
 
   .atlas {
-    right: 4%;
-    top: 60%;
+    transform: rotate(1.6deg);
   }
 
   .ops {
-    left: 31%;
-    bottom: 4%;
+    transform: rotate(0.8deg);
+  }
+
+  .agent-object:hover,
+  .agent-object.is-selected {
+    transform: translateY(-0.22rem) rotate(var(--tilt));
+  }
+
+  .agent-object::after {
+    bottom: 3.28rem;
+  }
+
+  .agent-face {
+    top: 25%;
+  }
+
+  .agent-name {
+    font-size: 1.18rem;
+  }
+
+  .agent-state {
+    max-width: 8.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .suggestions {
