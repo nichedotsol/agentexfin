@@ -1,7 +1,7 @@
 @media (min-width: 761px) {
   .workspace {
     justify-content: center;
-    padding-inline: max(clamp(1rem, 2vw, 1.6rem), calc((100% - 46rem) / 2));
+    padding-inline: max(clamp(1rem, 2vw, 1.6rem), calc((100% - 48rem) / 2));
     overscroll-behavior-x: contain;
     scrollbar-width: none;
     box-shadow:
@@ -14,51 +14,54 @@
   }
 
   .funds-core {
-    top: 46%;
+    top: 45%;
   }
 
   .agent-object {
-    flex-basis: clamp(12rem, 15vw, 14.6rem);
-    min-width: clamp(12rem, 15vw, 14.6rem);
-    min-height: clamp(9.2rem, 12.4vw, 11.1rem);
+    flex-basis: clamp(12.8rem, 16vw, 15.4rem);
+    min-width: clamp(12.8rem, 16vw, 15.4rem);
+    min-height: clamp(10rem, 13.4vw, 12.2rem);
   }
 
   .agent-object:nth-of-type(2) {
-    margin-bottom: 1.35rem;
+    margin-bottom: 1.45rem;
   }
 
   .agent-object:nth-of-type(3) {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
   }
 
   .agent-object:nth-of-type(4) {
-    margin-bottom: 1.05rem;
+    margin-bottom: 1.15rem;
   }
 }
 
 .agent-object {
   isolation: isolate;
   overflow: visible;
-  background-blend-mode: soft-light, normal;
+  background-blend-mode: soft-light, multiply, normal;
   box-shadow:
-    inset 0.65rem 0.7rem 1.2rem rgba(255, 255, 250, 0.38),
-    inset -0.7rem -0.8rem 1.25rem rgba(34, 29, 23, 0.12);
+    inset 1rem 1.05rem 1.45rem rgba(255, 255, 250, 0.48),
+    inset -0.95rem -1rem 1.55rem rgba(34, 29, 23, 0.2),
+    0 1.1rem 1.8rem rgba(33, 29, 21, 0.14);
 }
 
 .agent-object::before {
-  inset: 0.58rem 0.7rem auto;
-  height: 50%;
+  inset: 0.48rem 0.82rem auto;
+  height: 56%;
   background:
-    radial-gradient(ellipse at 34% 26%, rgba(255, 255, 250, 0.72), transparent 42%),
-    linear-gradient(rgba(255, 255, 250, 0.24), rgba(255, 255, 250, 0));
-  filter: blur(0.08rem);
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 250, 0.86), transparent 36%),
+    radial-gradient(ellipse at 58% 46%, rgba(255, 255, 250, 0.22), transparent 52%),
+    linear-gradient(rgba(255, 255, 250, 0.28), rgba(255, 255, 250, 0));
+  filter: blur(0.06rem);
+  mix-blend-mode: soft-light;
 }
 
 .agent-object::after {
-  width: 1.1rem;
-  height: 0.42rem;
-  border-bottom-width: 0.18rem;
-  opacity: 0.82;
+  width: 1.24rem;
+  height: 0.48rem;
+  border-bottom-width: 0.2rem;
+  opacity: 0.86;
 }
 
 .agent-object .agent-face::before,
@@ -72,66 +75,82 @@
 
 .agent-object .agent-face::before {
   left: 50%;
-  top: -0.45rem;
-  width: 4.4rem;
-  height: 2.8rem;
-  background: rgba(255, 255, 250, 0.12);
+  top: -0.58rem;
+  width: 4.8rem;
+  height: 3.15rem;
+  background: rgba(255, 255, 250, 0.16);
   transform: translateX(-50%) rotate(-6deg);
   filter: blur(0.08rem);
 }
 
 .agent-object .agent-face::after {
   left: 50%;
-  top: 0.25rem;
-  width: 0.38rem;
-  height: 0.26rem;
+  top: 0.34rem;
+  width: 0.42rem;
+  height: 0.28rem;
   background: rgba(23, 25, 20, 0.78);
   transform: translateX(-50%);
 }
 
+.agent-face {
+  top: 24%;
+  gap: 0.68rem;
+}
+
 .agent-face i {
   position: relative;
+  width: 1.22rem;
+  height: 1.62rem;
   overflow: hidden;
   box-shadow:
-    inset 0 -0.34rem 0 #171914,
-    0 0.08rem 0.12rem rgba(255, 255, 250, 0.42);
+    inset 0 -0.39rem 0 #171914,
+    0 0.08rem 0.14rem rgba(255, 255, 250, 0.52);
 }
 
 .agent-face i::after {
   content: "";
   position: absolute;
-  left: 0.24rem;
-  top: 0.2rem;
-  width: 0.22rem;
-  height: 0.22rem;
+  left: 0.27rem;
+  top: 0.22rem;
+  width: 0.25rem;
+  height: 0.25rem;
   border-radius: 50%;
-  background: rgba(255, 255, 250, 0.92);
+  background: rgba(255, 255, 250, 0.95);
+}
+
+.agent-name {
+  font-size: 1.36rem;
+}
+
+.agent-state {
+  margin-top: 0.28rem;
+  color: rgba(38, 39, 34, 0.76);
 }
 
 .mira {
   background:
-    radial-gradient(ellipse at 26% 22%, rgba(255, 255, 250, 0.6), transparent 28%),
-    radial-gradient(ellipse at 68% 78%, rgba(53, 139, 168, 0.28), transparent 44%),
-    var(--blue);
+    radial-gradient(ellipse at 24% 18%, rgba(255, 255, 250, 0.68), transparent 27%),
+    radial-gradient(ellipse at 74% 86%, rgba(37, 106, 132, 0.35), transparent 48%),
+    #74cde6;
 }
 
 .atlas {
   background:
-    radial-gradient(ellipse at 26% 22%, rgba(255, 255, 250, 0.56), transparent 28%),
-    radial-gradient(ellipse at 70% 80%, rgba(173, 126, 34, 0.24), transparent 45%),
-    var(--amber);
+    radial-gradient(ellipse at 24% 18%, rgba(255, 255, 250, 0.62), transparent 27%),
+    radial-gradient(ellipse at 74% 86%, rgba(155, 103, 22, 0.3), transparent 48%),
+    #efca62;
 }
 
 .ops {
   background:
-    radial-gradient(ellipse at 28% 22%, rgba(255, 255, 250, 0.55), transparent 28%),
-    radial-gradient(ellipse at 70% 80%, rgba(165, 54, 43, 0.22), transparent 44%),
-    var(--coral);
+    radial-gradient(ellipse at 24% 18%, rgba(255, 255, 250, 0.62), transparent 27%),
+    radial-gradient(ellipse at 74% 86%, rgba(150, 48, 38, 0.3), transparent 48%),
+    #f07d66;
 }
 
 .agent-object:hover,
 .agent-object.is-selected {
-  filter: drop-shadow(0 25px 36px rgba(33, 29, 21, 0.2));
+  filter: drop-shadow(0 27px 38px rgba(33, 29, 21, 0.22));
 }
 
 .agent-object:focus-visible,
@@ -149,13 +168,21 @@
 
 .mini-agent {
   box-shadow:
-    inset 0.38rem 0.44rem 0.9rem rgba(255, 255, 250, 0.42),
-    inset -0.45rem -0.5rem 0.85rem rgba(34, 29, 23, 0.13),
-    0 1rem 1.8rem rgba(33, 29, 21, 0.12);
+    inset 0.55rem 0.62rem 1rem rgba(255, 255, 250, 0.5),
+    inset -0.55rem -0.62rem 1rem rgba(34, 29, 23, 0.18),
+    0 1rem 1.8rem rgba(33, 29, 21, 0.14);
 }
 
 @media (max-width: 760px) {
   .workspace {
     justify-content: flex-start;
+  }
+
+  .agent-face {
+    top: 24%;
+  }
+
+  .agent-name {
+    font-size: 1.22rem;
   }
 }
