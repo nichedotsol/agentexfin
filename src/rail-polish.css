@@ -1,6 +1,22 @@
 @media (min-width: 761px) {
+  body {
+    overflow: hidden;
+  }
+
+  .shell {
+    height: 100vh;
+    grid-template-rows: auto minmax(23rem, 1fr) auto auto;
+    gap: 0.62rem;
+    padding: clamp(0.85rem, 1.5vw, 1.4rem);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 4.3vw, 3.85rem);
+  }
+
   .workspace {
     justify-content: center;
+    min-height: 0;
     padding-inline: max(clamp(1rem, 2vw, 1.6rem), calc((100% - 48rem) / 2));
     overscroll-behavior-x: contain;
     scrollbar-width: none;
@@ -14,7 +30,7 @@
   }
 
   .funds-core {
-    top: 45%;
+    top: 44%;
   }
 
   .agent-object {
@@ -24,15 +40,45 @@
   }
 
   .agent-object:nth-of-type(2) {
-    margin-bottom: 1.45rem;
+    margin-bottom: 0.75rem;
   }
 
   .agent-object:nth-of-type(3) {
-    margin-bottom: 0.15rem;
+    margin-bottom: 0;
   }
 
   .agent-object:nth-of-type(4) {
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .command-panel {
+    justify-self: center;
+    width: min(43rem, calc(100vw - 2rem));
+    gap: 0.48rem;
+  }
+
+  .command-label {
+    font-size: 0.82rem;
+  }
+
+  .command-form {
+    min-height: 3.18rem;
+    box-shadow: 0 12px 34px rgba(36, 31, 23, 0.1);
+  }
+
+  .command-form button {
+    padding: 0.74rem 1rem;
+  }
+
+  .score-tray {
+    justify-self: center;
+    width: min(48rem, calc(100vw - 2rem));
+    border-radius: 1.1rem;
+    padding: 0.66rem 1rem 0.7rem;
+  }
+
+  .score-tray strong {
+    font-size: 0.98rem;
   }
 }
 
