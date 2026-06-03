@@ -10,6 +10,7 @@ body {
 .shell {
   display: grid;
   grid-template-columns: 14rem minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   width: min(91rem, calc(100vw - 4.4rem));
   height: min(92vh, 54.5rem);
   min-height: 42rem;
