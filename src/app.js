@@ -33,7 +33,6 @@ const slider = document.querySelector("#approvalSlider");
 const thumb = document.querySelector("#sliderThumb");
 
 let alwaysSimulate = true;
-let dragMoved = false;
 let sliding = false;
 let startX = 0;
 let sliderMax = 0;
@@ -116,7 +115,6 @@ function pointerX(event) {
 
 agentButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (dragMoved) return;
     openAgent(button.dataset.agent);
   });
 });
