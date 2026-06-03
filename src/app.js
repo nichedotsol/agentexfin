@@ -33,9 +33,7 @@ const slider = document.querySelector("#approvalSlider");
 const thumb = document.querySelector("#sliderThumb");
 
 let alwaysSimulate = true;
-let draggingAgent = null;
 let dragMoved = false;
-let dragOffset = { x: 0, y: 0 };
 let sliding = false;
 let startX = 0;
 let sliderMax = 0;
@@ -116,47 +114,10 @@ function pointerX(event) {
   return event.touches ? event.touches[0].clientX : event.clientX;
 }
 
-function usesAgentRail() {
-  return window.matchMedia("(max-width: 760px)").matches;
-}
-
 agentButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (dragMoved) return;
     openAgent(button.dataset.agent);
-  });
-
-  button.addEventListener("pointerdown", (event) => {
-    if (usesAgentRail()) return;
-    draggingAgent = button;
-    dragMoved = false;
-    const rect = button.getBoundingClientRect();
-    dragOffset = {
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-    };
-    button.setPointerCapture(event.pointerId);
-  });
-
-  button.addEventListener("pointermove", (event) => {
-    if (usesAgentRail()) return;
-    if (draggingAgent !== button) return;
-    const workspace = document.querySelector(".workspace").getBoundingClientRect();
-    const x = event.clientX - workspace.left - dragOffset.x;
-    const y = event.clientY - workspace.top - dragOffset.y;
-    dragMoved = true;
-    button.style.left = `${Math.max(0, Math.min(workspace.width - button.offsetWidth, x))}px`;
-    button.style.top = `${Math.max(0, Math.min(workspace.height - button.offsetHeight, y))}px`;
-    button.style.right = "auto";
-    button.style.bottom = "auto";
-  });
-
-  button.addEventListener("pointerup", () => {
-    if (usesAgentRail()) return;
-    setTimeout(() => {
-      draggingAgent = null;
-      dragMoved = false;
-    }, 0);
   });
 });
 
