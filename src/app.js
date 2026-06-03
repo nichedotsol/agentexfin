@@ -116,6 +116,10 @@ function pointerX(event) {
   return event.touches ? event.touches[0].clientX : event.clientX;
 }
 
+function usesAgentRail() {
+  return window.matchMedia("(max-width: 760px)").matches;
+}
+
 agentButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (dragMoved) return;
@@ -123,6 +127,7 @@ agentButtons.forEach((button) => {
   });
 
   button.addEventListener("pointerdown", (event) => {
+    if (usesAgentRail()) return;
     draggingAgent = button;
     dragMoved = false;
     const rect = button.getBoundingClientRect();
@@ -134,6 +139,7 @@ agentButtons.forEach((button) => {
   });
 
   button.addEventListener("pointermove", (event) => {
+    if (usesAgentRail()) return;
     if (draggingAgent !== button) return;
     const workspace = document.querySelector(".workspace").getBoundingClientRect();
     const x = event.clientX - workspace.left - dragOffset.x;
@@ -146,6 +152,7 @@ agentButtons.forEach((button) => {
   });
 
   button.addEventListener("pointerup", () => {
+    if (usesAgentRail()) return;
     setTimeout(() => {
       draggingAgent = null;
       dragMoved = false;
