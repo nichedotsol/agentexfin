@@ -78,12 +78,12 @@ function prepareAction(command = "") {
     actionSubtitle.textContent = "Mira spent $2.13. Atlas returned $3.12. Ops needs approval.";
   } else if (isFunding) {
     actionMode.textContent = alwaysSimulate ? "Simulation" : "Prepared action";
-    actionTitle.textContent = "Give Mira 20 USDC";
-    actionSubtitle.textContent = "For research this week";
+    actionTitle.textContent = "20 USDC";
+    actionSubtitle.textContent = "Give Mira a research budget";
   } else {
     actionMode.textContent = alwaysSimulate ? "Simulation" : "Prepared action";
-    actionTitle.textContent = "Move 50 USDC";
-    actionSubtitle.textContent = "From Base to Solana";
+    actionTitle.textContent = "50 USDC";
+    actionSubtitle.textContent = "Move from Base to Solana";
   }
 
   simulationBlock.classList.toggle("is-visible", alwaysSimulate);
