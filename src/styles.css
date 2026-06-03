@@ -1,18 +1,18 @@
 :root {
   color-scheme: light;
   --ink: #262722;
-  --muted: #77776d;
-  --paper: #f4f1e8;
-  --paper-deep: #ebe6d9;
+  --muted: #777469;
+  --paper: #f7f1e6;
+  --paper-deep: #ebe1d1;
   --line: rgba(38, 39, 34, 0.14);
   --shadow: 0 24px 70px rgba(36, 31, 23, 0.16);
-  --green: #437e68;
-  --green-dark: #0f4b3d;
-  --amber: #e6b94d;
-  --coral: #ea7b63;
-  --blue: #76bed8;
-  --pink: #eda7c9;
-  --violet: #aaa1d8;
+  --green: #2e8268;
+  --green-dark: #0c513f;
+  --amber: #e8c35f;
+  --coral: #ef7d69;
+  --blue: #7bc7dd;
+  --pink: #ef9bc8;
+  --violet: #a69dde;
 }
 
 * {
@@ -23,8 +23,9 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 5%, rgba(255, 246, 210, 0.72), transparent 30rem),
-    radial-gradient(circle at 90% 20%, rgba(67, 126, 104, 0.16), transparent 26rem),
+    radial-gradient(circle at 18% 6%, rgba(255, 244, 206, 0.86), transparent 31rem),
+    radial-gradient(circle at 88% 18%, rgba(123, 199, 221, 0.24), transparent 30rem),
+    radial-gradient(circle at 50% 105%, rgba(239, 125, 105, 0.13), transparent 34rem),
     var(--paper);
   color: var(--ink);
   font-family:
@@ -46,8 +47,8 @@ button {
   display: grid;
   grid-template-rows: auto minmax(27rem, 1fr) auto auto;
   min-height: 100vh;
-  padding: clamp(1.1rem, 2.4vw, 2.4rem);
-  gap: 1.1rem;
+  padding: clamp(1rem, 2vw, 2rem);
+  gap: 0.95rem;
 }
 
 .hero {
@@ -75,7 +76,7 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(3.4rem, 9vw, 7.6rem);
+  font-size: clamp(2.05rem, 5vw, 4.2rem);
 }
 
 h2 {
@@ -125,29 +126,44 @@ h2 {
 .workspace {
   position: relative;
   min-height: 31rem;
-  border-radius: 2rem;
+  border-radius: 2.2rem;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0)),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2.45rem,
-      rgba(38, 39, 34, 0.035) 2.5rem
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 2.45rem,
-      rgba(38, 39, 34, 0.035) 2.5rem
-    );
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 250, 0.82), rgba(255, 255, 250, 0.2) 36%, transparent 60%),
+    radial-gradient(ellipse at 50% 52%, transparent 0 36%, rgba(38, 39, 34, 0.07) 36.2% 36.7%, transparent 37%),
+    radial-gradient(ellipse at 50% 52%, transparent 0 49%, rgba(38, 39, 34, 0.05) 49.2% 49.7%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.02));
   overflow: hidden;
+}
+
+.workspace::before,
+.workspace::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.workspace::before {
+  inset: 12% 18%;
+  border: 1px solid rgba(38, 39, 34, 0.06);
+  transform: rotate(-8deg);
+}
+
+.workspace::after {
+  left: 50%;
+  top: 50%;
+  width: 38rem;
+  max-width: 78vw;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 250, 0.64), rgba(255, 255, 250, 0) 67%);
 }
 
 .funds-core {
   position: absolute;
   left: 50%;
   top: 48%;
-  z-index: 2;
+  z-index: 3;
   display: grid;
   justify-items: center;
   width: min(32rem, 78vw);
@@ -158,7 +174,7 @@ h2 {
 
 .funds-core span {
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -167,7 +183,7 @@ h2 {
 .funds-core strong {
   display: block;
   margin-top: 0.2rem;
-  font-size: clamp(4.2rem, 13vw, 9.4rem);
+  font-size: clamp(4.8rem, 13vw, 9.8rem);
   line-height: 0.92;
   letter-spacing: 0;
 }
@@ -176,6 +192,7 @@ h2 {
   margin: 0.8rem 0 0;
   color: #5a5a52;
   font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 650;
 }
 
 .agent-object {
@@ -198,6 +215,28 @@ h2 {
   cursor: grabbing;
 }
 
+.agent-object::before {
+  content: "";
+  position: absolute;
+  inset: 0.55rem 0.7rem auto;
+  height: 46%;
+  border-radius: inherit;
+  background: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+  opacity: 0.72;
+}
+
+.agent-object::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3.4rem;
+  width: 1.05rem;
+  height: 0.38rem;
+  border-bottom: 0.16rem solid rgba(23, 25, 20, 0.86);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
 .agent-object:hover,
 .agent-object.is-selected {
   transform: translateY(-0.35rem) rotate(var(--tilt));
@@ -209,7 +248,9 @@ h2 {
   left: 12%;
   top: 18%;
   border-radius: 44% 56% 52% 48% / 60% 42% 58% 40%;
-  background: var(--blue);
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.52), transparent 32%),
+    var(--blue);
   transform: rotate(var(--tilt));
 }
 
@@ -218,7 +259,9 @@ h2 {
   right: 11%;
   top: 22%;
   border-radius: 47% 53% 68% 32% / 40% 56% 44% 60%;
-  background: var(--amber);
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.48), transparent 32%),
+    var(--amber);
   transform: rotate(var(--tilt));
 }
 
@@ -227,7 +270,9 @@ h2 {
   left: 47%;
   bottom: 8%;
   border-radius: 52% 48% 36% 64% / 52% 42% 58% 48%;
-  background: var(--coral);
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.48), transparent 32%),
+    var(--coral);
   transform: rotate(var(--tilt));
 }
 
@@ -236,7 +281,10 @@ h2 {
 }
 
 .is-needed {
-  box-shadow: 0 0 0 0.45rem rgba(230, 185, 77, 0.28);
+  box-shadow:
+    0 0 0 0.45rem rgba(232, 195, 95, 0.28),
+    0 0 2.4rem rgba(239, 125, 105, 0.24);
+  animation: nudge 2.4s ease-in-out infinite;
 }
 
 .agent-face {
@@ -259,7 +307,7 @@ h2 {
 .agent-name {
   position: relative;
   z-index: 1;
-  font-size: 1.25rem;
+  font-size: 1.28rem;
   font-weight: 850;
 }
 
@@ -278,10 +326,19 @@ h2 {
   gap: 0.75rem;
 }
 
+.command-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 750;
+  text-align: center;
+}
+
 .suggestions {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .suggestions button,
@@ -303,8 +360,8 @@ h2 {
   padding: 0.5rem;
   border: 1px solid var(--line);
   border-radius: 999rem;
-  background: rgba(255, 255, 250, 0.72);
-  box-shadow: 0 18px 48px rgba(36, 31, 23, 0.1);
+  background: rgba(255, 255, 250, 0.86);
+  box-shadow: 0 18px 48px rgba(36, 31, 23, 0.12);
 }
 
 .command-form input,
@@ -323,7 +380,7 @@ h2 {
   border-radius: 999rem;
   background: var(--ink);
   color: #fffaf1;
-  padding: 0.9rem 1.1rem;
+  padding: 0.9rem 1.15rem;
   cursor: pointer;
 }
 
@@ -333,9 +390,10 @@ h2 {
   gap: 0.9rem;
   width: 100%;
   border: 0;
-  border-top: 1px solid var(--line);
-  background: transparent;
-  padding: 0.95rem 0 0;
+  border-top: 1px solid rgba(38, 39, 34, 0.1);
+  background: rgba(255, 255, 250, 0.35);
+  border-radius: 1.2rem 1.2rem 0 0;
+  padding: 0.92rem 1rem 0.2rem;
   text-align: left;
   cursor: pointer;
 }
@@ -348,7 +406,31 @@ h2 {
 }
 
 .score-tray strong {
+  display: flex;
+  align-items: center;
+  gap: 0.46rem;
+  flex-wrap: wrap;
   font-size: clamp(0.98rem, 2vw, 1.15rem);
+}
+
+.bead {
+  width: 0.64rem;
+  height: 0.64rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.bead.now {
+  background: var(--green);
+}
+
+.bead.wait {
+  background: var(--amber);
+  box-shadow: 0 0 0 0.34rem rgba(232, 195, 95, 0.2);
+}
+
+.bead.done {
+  background: var(--ink);
 }
 
 .agent-sheet,
@@ -431,12 +513,12 @@ h2 {
 
 .action-metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.65rem;
+  grid-template-columns: 1fr;
+  gap: 0;
   margin-top: 1.1rem;
+  border-top: 1px solid var(--line);
 }
 
-.action-metrics div,
 .simulation,
 .score-list article {
   border: 1px solid var(--line);
@@ -445,9 +527,17 @@ h2 {
   padding: 0.9rem;
 }
 
+.action-metrics div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.78rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
 .action-metrics strong {
   display: block;
-  margin-top: 0.2rem;
+  margin-top: 0;
 }
 
 .simulation {
@@ -578,6 +668,16 @@ h2 {
   }
 }
 
+@keyframes nudge {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -0.18rem;
+  }
+}
+
 @media (max-width: 760px) {
   body {
     overflow-x: hidden;
@@ -591,7 +691,7 @@ h2 {
   }
 
   .workspace {
-    min-height: 29rem;
+    min-height: 30rem;
     border-radius: 1.5rem;
   }
 
@@ -625,6 +725,7 @@ h2 {
   }
 
   .suggestions {
+    justify-content: flex-start;
     flex-wrap: nowrap;
     overflow-x: auto;
     padding-bottom: 0.15rem;
