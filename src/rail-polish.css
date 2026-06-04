@@ -40,46 +40,17 @@ body {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
+  justify-content: flex-start;
   color: #11130f;
   text-decoration: none;
-  font-size: 1.05rem;
-  font-weight: 850;
 }
 
-.brand-mark {
-  position: relative;
-  width: 1.78rem;
-  height: 1.78rem;
+.brand-logo {
+  display: block;
+  width: 2.1rem;
+  height: 2.1rem;
   flex: 0 0 auto;
-  border: 0.36rem solid #171914;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  transform: rotate(0deg);
-}
-
-.brand-mark::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -0.36rem;
-  width: 0.86rem;
-  height: 0.58rem;
-  background: #fbf9f4;
-  transform: translateX(-50%);
-}
-
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  left: 0.04rem;
-  right: 0.04rem;
-  bottom: -0.12rem;
-  height: 0.36rem;
-  border-radius: 999rem;
-  background:
-    radial-gradient(circle at left center, #171914 0 0.18rem, transparent 0.19rem),
-    radial-gradient(circle at right center, #171914 0 0.18rem, transparent 0.19rem);
+  object-fit: contain;
 }
 
 .nav-list {
@@ -848,9 +819,10 @@ body {
   }
 
   .hero::after {
-    content: "agentex";
-    font-size: 1rem;
-    font-weight: 850;
+    content: "";
+    width: 2.05rem;
+    height: 2.05rem;
+    background: url("./assets/agentex-logo.svg") center / contain no-repeat;
   }
 
   .menu-button {
