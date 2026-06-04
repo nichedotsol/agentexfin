@@ -47,8 +47,8 @@ body {
 
 .brand-logo {
   display: block;
-  width: 2.85rem;
-  height: 2.85rem;
+  width: 5.7rem;
+  height: 5.7rem;
   flex: 0 0 auto;
   object-fit: contain;
 }
@@ -820,8 +820,8 @@ body {
 
   .hero::after {
     content: "";
-    width: 2.45rem;
-    height: 2.45rem;
+    width: 4.9rem;
+    height: 4.9rem;
     background: url("./assets/agentex-logo.svg") center / contain no-repeat;
   }
 
