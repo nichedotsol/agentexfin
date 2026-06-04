@@ -289,6 +289,10 @@ body {
   align-items: flex-start;
 }
 
+.hero > div {
+  margin-left: clamp(3.5rem, 8.6vw, 9.5rem);
+}
+
 .hero .eyebrow {
   display: none;
 }
@@ -1005,6 +1009,10 @@ body {
     align-items: center;
     min-height: 3rem;
     padding: 0 1rem;
+  }
+
+  .hero > div {
+    margin-left: 0;
   }
 
   .hero h1,
