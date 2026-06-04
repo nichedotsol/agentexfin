@@ -822,7 +822,7 @@ body {
     content: "";
     width: 4.9rem;
     height: 4.9rem;
-    background: url("./assets/agentex-logo.svg") center / contain no-repeat;
+    background: url("./assets/agentex-logo-exact.svg") center / contain no-repeat;
   }
 
   .menu-button {
