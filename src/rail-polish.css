@@ -40,7 +40,7 @@ body {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.68rem;
+  gap: 0.7rem;
   color: #11130f;
   text-decoration: none;
   font-size: 1.05rem;
@@ -49,32 +49,37 @@ body {
 
 .brand-mark {
   position: relative;
-  width: 1.42rem;
-  height: 1.42rem;
-  border: 0.2rem solid #11130f;
-  border-radius: 58% 42% 50% 50%;
-}
-
-.brand-mark::before,
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  border: 0.13rem solid #11130f;
-  border-radius: 999rem;
+  width: 1.78rem;
+  height: 1.78rem;
+  flex: 0 0 auto;
+  border: 0.36rem solid #171914;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  transform: rotate(0deg);
 }
 
 .brand-mark::before {
-  right: -0.55rem;
-  bottom: -0.22rem;
-  width: 0.65rem;
-  height: 0.42rem;
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.36rem;
+  width: 0.86rem;
+  height: 0.58rem;
+  background: #fbf9f4;
+  transform: translateX(-50%);
 }
 
 .brand-mark::after {
-  left: -0.28rem;
-  bottom: -0.36rem;
-  width: 0.56rem;
-  height: 0.38rem;
+  content: "";
+  position: absolute;
+  left: 0.04rem;
+  right: 0.04rem;
+  bottom: -0.12rem;
+  height: 0.36rem;
+  border-radius: 999rem;
+  background:
+    radial-gradient(circle at left center, #171914 0 0.18rem, transparent 0.19rem),
+    radial-gradient(circle at right center, #171914 0 0.18rem, transparent 0.19rem);
 }
 
 .nav-list {
