@@ -9,7 +9,7 @@ body {
 
 .shell {
   display: grid;
-  grid-template-columns: 16rem minmax(0, 1fr);
+  grid-template-columns: 18rem minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
   width: min(91rem, calc(100vw - 4.4rem));
   height: min(92vh, 54.5rem);
@@ -41,8 +41,8 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.72rem;
-  min-height: 4rem;
+  gap: 0.94rem;
+  min-height: 5.2rem;
   padding-left: 0.58rem;
   color: #11130f;
   text-decoration: none;
@@ -50,31 +50,31 @@ body {
 
 .brand-logo {
   display: block;
-  width: 3.7rem;
-  height: 3.7rem;
+  width: 4.8rem;
+  height: 4.8rem;
   flex: 0 0 auto;
   object-fit: contain;
 }
 
 .brand-greeting {
   display: grid;
-  gap: 0.22rem;
+  gap: 0.29rem;
   min-width: 0;
 }
 
 .brand-greeting strong {
   color: #1f201c;
   font-family: var(--font-primary);
-  font-size: 1.08rem;
+  font-size: 1.4rem;
   font-weight: 830;
   line-height: 1;
 }
 
 .brand-greeting small {
-  max-width: 7.2rem;
+  max-width: 8.8rem;
   color: #686a64;
   font-family: var(--font-ui);
-  font-size: 0.72rem;
+  font-size: 0.86rem;
   font-weight: 520;
   line-height: 1.16;
 }
