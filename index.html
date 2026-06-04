@@ -11,13 +11,17 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/styles.css" />
-    <link rel="stylesheet" href="./src/rail-polish.css?v=reference-8" />
+    <link rel="stylesheet" href="./src/rail-polish.css?v=reference-9" />
   </head>
   <body>
     <main class="shell" aria-label="Agentex workspace">
       <aside class="side-nav" aria-label="Agentex navigation">
         <a class="brand" href="/" aria-label="Agentex home">
           <img class="brand-logo" src="./src/assets/agentex-logo-exact.svg" alt="Agentex" />
+          <span class="brand-greeting">
+            <strong id="greetingTitle">Hi, User</strong>
+            <small id="greetingSubtitle">Good morning. Your agents are on it.</small>
+          </span>
         </a>
 
         <nav class="nav-list" aria-label="Primary">
@@ -46,8 +50,8 @@
       <section class="app-main">
         <header class="hero">
           <div>
-            <h1>Hi, User</h1>
-            <p>Good morning. Your agents are on it.</p>
+            <h1 id="heroGreetingTitle">Hi, User</h1>
+            <p id="heroGreetingSubtitle">Good morning. Your agents are on it.</p>
           </div>
           <button class="menu-button" type="button" aria-label="Open settings">
             <span></span>

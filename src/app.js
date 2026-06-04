@@ -19,6 +19,10 @@ const agents = {
   },
 };
 
+const profile = {
+  name: localStorage.getItem("agentex.userName") || "User",
+};
+
 const scrim = document.querySelector("#scrim");
 const agentSheet = document.querySelector("#agentSheet");
 const actionSheet = document.querySelector("#actionSheet");
@@ -36,6 +40,25 @@ let alwaysSimulate = true;
 let sliding = false;
 let startX = 0;
 let sliderMax = 0;
+
+function timeGreeting(date = new Date()) {
+  const hour = date.getHours();
+  if (hour < 12) return "Good morning.";
+  if (hour < 17) return "Good afternoon.";
+  return "Good evening.";
+}
+
+function hydrateProfile() {
+  const greeting = `${timeGreeting()} Your agents are on it.`;
+  document.querySelectorAll("#greetingTitle, #heroGreetingTitle").forEach((node) => {
+    node.textContent = `Hi, ${profile.name}`;
+  });
+  document.querySelectorAll("#greetingSubtitle, #heroGreetingSubtitle").forEach((node) => {
+    node.textContent = greeting;
+  });
+  document.querySelector(".account-card strong").firstChild.textContent = `${profile.name} `;
+  document.querySelector(".account-card > span").textContent = profile.name.charAt(0).toUpperCase();
+}
 
 function openLayer(layer) {
   closeLayers();
@@ -112,6 +135,8 @@ function approveAction() {
 function pointerX(event) {
   return event.touches ? event.touches[0].clientX : event.clientX;
 }
+
+hydrateProfile();
 
 agentButtons.forEach((button) => {
   button.addEventListener("click", () => {
