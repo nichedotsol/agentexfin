@@ -1063,7 +1063,7 @@ body {
     content: "";
     width: 3.45rem;
     height: 3.45rem;
-    background: url("./assets/agentex-logo-exact.svg") center / contain no-repeat;
+    background: url("./assets/agentex-logo-asymmetric.svg") center / contain no-repeat;
   }
 
   .menu-button {
